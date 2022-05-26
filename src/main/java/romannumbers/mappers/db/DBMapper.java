@@ -16,6 +16,11 @@ public class DBMapper implements NumberMapper {
 
     @Override
     public String map(int number) {
-       return mappersDAO.returnDataFromDb(number,mapperType);
+        String returnNum = mappersDAO.returnDataFromDb(number, mapperType);
+        if (returnNum == null) {
+            return String.valueOf(number);
+        } else {
+            return returnNum;
+        }
     }
 }
